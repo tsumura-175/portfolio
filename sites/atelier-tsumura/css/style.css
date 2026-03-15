@@ -412,15 +412,6 @@ ul, ol {
   position: relative;
   overflow: hidden;
   border-radius: 2px;
-}
-
-.hero-grid-item:nth-child(1),
-.hero-grid-item:nth-child(4) {
-  aspect-ratio: 3 / 4;
-}
-
-.hero-grid-item:nth-child(2),
-.hero-grid-item:nth-child(3) {
   aspect-ratio: 1 / 1;
 }
 
@@ -508,7 +499,7 @@ ul, ol {
   }
 }
 
-/* Works Grid - Masonry-like */
+/* Works Grid */
 .works-grid {
   display: grid;
   grid-template-columns: 1fr;
@@ -528,30 +519,7 @@ ul, ol {
   overflow: hidden;
   border-radius: 2px;
   cursor: none;
-}
-
-.work-card:nth-child(1) {
-  aspect-ratio: 3 / 4;
-}
-
-@media (min-width: 768px) {
-  .work-card:nth-child(1) {
-    grid-row: span 2;
-  }
-}
-
-.work-card:nth-child(2),
-.work-card:nth-child(6) {
   aspect-ratio: 1 / 1;
-}
-
-.work-card:nth-child(3),
-.work-card:nth-child(4) {
-  aspect-ratio: 4 / 3;
-}
-
-.work-card:nth-child(5) {
-  aspect-ratio: 4 / 3;
 }
 
 .work-card-image {
@@ -892,7 +860,7 @@ ul, ol {
   position: relative;
   overflow: hidden;
   border-radius: 2px;
-  aspect-ratio: 3 / 4;
+  aspect-ratio: 1 / 1;
   max-width: 24rem;
   margin: 0 auto;
 }
