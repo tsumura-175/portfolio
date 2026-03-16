@@ -115,11 +115,10 @@
             </div>
             <h3 class="skill-category-title">Frontend</h3>
             <ul class="skill-list">
-              <li class="skill-item">HTML / CSS / Sass</li>
+              <li class="skill-item">HTML / CSS</li>
               <li class="skill-item">JavaScript / TypeScript</li>
               <li class="skill-item">React / Next.js</li>
               <li class="skill-item">Vue.js / Nuxt</li>
-              <li class="skill-item">Tailwind CSS</li>
             </ul>
           </div>
 
@@ -129,8 +128,8 @@
             </div>
             <h3 class="skill-category-title">Backend</h3>
             <ul class="skill-list">
-              <li class="skill-item">Node.js / Express</li>
-              <li class="skill-item">Python / Django</li>
+              <li class="skill-item">Node.js</li>
+              <li class="skill-item">Python</li>
               <li class="skill-item">PHP / Laravel</li>
               <li class="skill-item">PostgreSQL / MySQL</li>
               <li class="skill-item">REST API / GraphQL</li>
@@ -276,12 +275,55 @@
           お仕事のご依頼・ご相談はお気軽にどうぞ。<br>
           新しいプロジェクトや技術的なディスカッションも歓迎です。
         </p>
-        <a href="mailto:hello@example.com" class="top-contact-btn top-reveal" data-delay="300">
-          <span>Say Hello</span>
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg>
-        </a>
 
-        <div class="top-social top-reveal" data-delay="400">
+        <form class="top-contact-form top-reveal" id="contactForm" data-delay="300" novalidate>
+          <div class="top-form-group">
+            <label class="top-form-label" for="name">お名前</label>
+            <input class="top-form-input" type="text" id="name" name="name" placeholder="山田 太郎" required>
+            <span class="top-form-error">お名前を入力してください</span>
+          </div>
+
+          <div class="top-form-group">
+            <label class="top-form-label" for="email">メールアドレス</label>
+            <input class="top-form-input" type="email" id="email" name="email" placeholder="hello@example.com" required>
+            <span class="top-form-error">正しいメールアドレスを入力してください</span>
+          </div>
+
+          <div class="top-form-group">
+            <label class="top-form-label" for="service">ご依頼の種別</label>
+            <select class="top-form-select" id="service" name="service">
+              <option value="">選択してください</option>
+              <option value="portfolio">ポートフォリオサイト</option>
+              <option value="corporate">コーポレートサイト</option>
+              <option value="lp">LP制作</option>
+              <option value="ec">ECサイト</option>
+              <option value="renewal">既存サイトのリニューアル</option>
+              <option value="other">その他</option>
+            </select>
+          </div>
+
+          <div class="top-form-group">
+            <label class="top-form-label" for="message">メッセージ</label>
+            <textarea class="top-form-textarea" id="message" name="message" rows="5" placeholder="ご依頼の概要をお聞かせください（ご予算・納期のご希望など）"></textarea>
+          </div>
+
+          <button type="submit" class="top-form-submit">
+            <span>送信する</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg>
+          </button>
+        </form>
+
+        <div class="top-form-success" id="formSuccess">
+          <div class="top-form-success-icon">✓</div>
+          <p class="top-form-success-title">ありがとうございます</p>
+          <p class="top-form-success-text">メッセージを受け付けました。2営業日以内にご連絡いたします。</p>
+        </div>
+
+        <p class="top-contact-email top-reveal" data-delay="400">
+          または <a href="mailto:tumura77@gmail.com">tumura77@gmail.com</a> まで
+        </p>
+
+        <div class="top-social top-reveal" data-delay="500">
           <a href="https://github.com/" class="top-social-link" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
             <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
           </a>

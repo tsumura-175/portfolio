@@ -162,6 +162,14 @@
         cursor.classList.add('default');
         if (cursorText) cursorText.textContent = '';
       }
+
+      // Toggle light cursor on dark sections
+      const darkSection = e.target.closest('[data-cursor-theme="light"]');
+      if (darkSection) {
+        cursor.classList.add('cursor-light');
+      } else {
+        cursor.classList.remove('cursor-light');
+      }
     });
 
     requestAnimationFrame(updateCursor);
@@ -348,11 +356,28 @@
       }
 
       if (isValid) {
-        // Show success message
-        form.style.display = 'none';
-        if (success) {
-          success.classList.add('active');
-        }
+        const GOOGLE_FORM_URL = 'https://docs.google.com/forms/d/e/1FAIpQLScR2M-zPmHHWlt-J96_YsoMY5OhRNxq15ETZvPt5jwk9yrdkQ/formResponse';
+        const serviceField = form.querySelector('#service');
+        const messageField = form.querySelector('#message');
+
+        const params = new URLSearchParams();
+        params.append('entry.593411620', nameField.value.trim());
+        params.append('entry.81051294', emailField.value.trim());
+        params.append('entry.854515103', serviceField ? serviceField.value : '');
+        params.append('entry.1283378040', messageField ? messageField.value.trim() : '');
+
+        fetch(GOOGLE_FORM_URL, {
+          method: 'POST',
+          mode: 'no-cors',
+          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+          body: params.toString()
+        }).then(() => {
+          form.style.display = 'none';
+          if (success) success.classList.add('active');
+        }).catch(() => {
+          form.style.display = 'none';
+          if (success) success.classList.add('active');
+        });
       }
     });
 

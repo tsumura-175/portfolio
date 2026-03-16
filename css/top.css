@@ -933,23 +933,112 @@ ul, ol {
   line-height: 2;
 }
 
-.top-contact-btn {
+/* Contact Form */
+.top-contact-form {
+  max-width: 32rem;
+  margin: 0 auto 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  text-align: left;
+}
+
+.top-form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.top-form-label {
+  font-size: 0.75rem;
+  letter-spacing: 0.05em;
+  color: var(--text-secondary);
+}
+
+.top-form-input,
+.top-form-select,
+.top-form-textarea {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  background-color: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+  transition: border-color var(--duration-normal) ease, background-color var(--duration-normal) ease;
+}
+
+.top-form-input::placeholder,
+.top-form-textarea::placeholder {
+  color: var(--text-muted);
+}
+
+.top-form-input:focus,
+.top-form-select:focus,
+.top-form-textarea:focus {
+  outline: none;
+  border-color: var(--accent);
+  background-color: rgba(255, 255, 255, 0.06);
+}
+
+.top-form-select {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23a0a0a8' stroke-width='2'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  padding-right: 2.5rem;
+  cursor: pointer;
+}
+
+.top-form-select option {
+  background-color: var(--bg-secondary);
+  color: var(--text-primary);
+}
+
+.top-form-textarea {
+  resize: vertical;
+  min-height: 8rem;
+}
+
+.top-form-error {
+  font-size: 0.75rem;
+  color: #f87171;
+  display: none;
+}
+
+.top-form-group.has-error .top-form-error {
+  display: block;
+}
+
+.top-form-group.has-error .top-form-input,
+.top-form-group.has-error .top-form-select,
+.top-form-group.has-error .top-form-textarea {
+  border-color: #f87171;
+}
+
+/* Submit Button */
+.top-form-submit {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 0.75rem;
+  padding: 0.875rem 2.25rem;
+  background: none;
   font-family: var(--font-display);
   font-size: 0.9375rem;
   font-weight: 500;
   color: var(--accent);
   border: 1px solid rgba(94, 234, 212, 0.3);
-  padding: 0.875rem 2.25rem;
   border-radius: 100px;
+  cursor: pointer;
   transition: all var(--duration-normal) var(--ease-out);
   position: relative;
   overflow: hidden;
+  align-self: center;
 }
 
-.top-contact-btn::before {
+.top-form-submit::before {
   content: '';
   position: absolute;
   inset: 0;
@@ -958,31 +1047,80 @@ ul, ol {
   transition: opacity var(--duration-normal) var(--ease-out);
 }
 
-.top-contact-btn:hover {
+.top-form-submit:hover {
   color: var(--accent);
   border-color: var(--accent);
   transform: translateY(-2px);
   box-shadow: 0 8px 32px rgba(94, 234, 212, 0.1);
 }
 
-.top-contact-btn:hover::before {
+.top-form-submit:hover::before {
   opacity: 1;
 }
 
-.top-contact-btn span,
-.top-contact-btn svg {
+.top-form-submit span,
+.top-form-submit svg {
   position: relative;
   z-index: 1;
 }
 
-.top-contact-btn svg {
+.top-form-submit svg {
   width: 18px;
   height: 18px;
   transition: transform var(--duration-normal) var(--ease-out);
 }
 
-.top-contact-btn:hover svg {
+.top-form-submit:hover svg {
   transform: translateX(4px);
+}
+
+/* Form Success */
+.top-form-success {
+  max-width: 32rem;
+  margin: 0 auto 2rem;
+  text-align: center;
+  padding: 3rem 1.5rem;
+  display: none;
+}
+
+.top-form-success.active {
+  display: block;
+}
+
+.top-form-success-icon {
+  font-size: 2rem;
+  color: var(--accent);
+  margin-bottom: 1rem;
+}
+
+.top-form-success-title {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+}
+
+.top-form-success-text {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+}
+
+/* Contact Email */
+.top-contact-email {
+  text-align: center;
+  margin-bottom: 1rem;
+  font-size: 0.8125rem;
+  color: var(--text-muted);
+}
+
+.top-contact-email a {
+  color: var(--accent);
+  transition: color var(--duration-fast) ease;
+}
+
+.top-contact-email a:hover {
+  color: var(--accent-hover);
 }
 
 /* Social Links */

@@ -157,6 +157,66 @@
   }
 
   // ========================================
+  // Contact Form
+  // ========================================
+  function initContactForm() {
+    var form = document.getElementById('contactForm');
+    var success = document.getElementById('formSuccess');
+    if (!form || !success) return;
+
+    var GOOGLE_FORM_URL = 'https://docs.google.com/forms/d/e/1FAIpQLScR2M-zPmHHWlt-J96_YsoMY5OhRNxq15ETZvPt5jwk9yrdkQ/formResponse';
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      // Reset errors
+      form.querySelectorAll('.top-form-group').forEach(function (group) {
+        group.classList.remove('has-error');
+      });
+
+      var nameInput = form.querySelector('#name');
+      var emailInput = form.querySelector('#email');
+      var serviceInput = form.querySelector('#service');
+      var messageInput = form.querySelector('#message');
+      var valid = true;
+
+      if (!nameInput.value.trim()) {
+        nameInput.closest('.top-form-group').classList.add('has-error');
+        valid = false;
+      }
+
+      var emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailInput.value.trim() || !emailPattern.test(emailInput.value.trim())) {
+        emailInput.closest('.top-form-group').classList.add('has-error');
+        valid = false;
+      }
+
+      if (!valid) return;
+
+      // Build form data for Google Forms
+      var params = new URLSearchParams();
+      params.append('entry.593411620', nameInput.value.trim());
+      params.append('entry.81051294', emailInput.value.trim());
+      params.append('entry.854515103', serviceInput.value);
+      params.append('entry.1283378040', messageInput.value.trim());
+
+      // Submit to Google Forms
+      fetch(GOOGLE_FORM_URL, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: params.toString()
+      }).then(function () {
+        form.style.display = 'none';
+        success.classList.add('active');
+      }).catch(function () {
+        form.style.display = 'none';
+        success.classList.add('active');
+      });
+    });
+  }
+
+  // ========================================
   // Initialize
   // ========================================
   function init() {
@@ -166,6 +226,7 @@
     initScrollReveal();
     initCardGlow();
     initScrollIndicator();
+    initContactForm();
   }
 
   if (document.readyState === 'loading') {
